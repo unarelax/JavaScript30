@@ -31,13 +31,13 @@ function findMatches(wordToMatch, cities) {
 }
 
 function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');//给数字添加千位分隔符的
 }
 
 function displayMatches() {
   const matchArray = findMatches(this.value, cities);
   const html = matchArray.map(place => {
-    const regex = new RegExp(this.value, 'gi');
+    const regex = new RegExp(this.value, 'gi');//全局忽略大小写的匹配模式
     const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
     const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
     return `
